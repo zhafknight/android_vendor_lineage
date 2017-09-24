@@ -1,5 +1,8 @@
 package android
 type Product_variables struct {
+	Egl_workaround_bug_10194508 struct {
+		Cppflags []string
+	}
 	Exynos4_enhancements struct {
 		Cflags []string
 		Cppflags []string
@@ -49,6 +52,7 @@ type Product_variables struct {
 }
 
 type ProductVariables struct {
+	Egl_workaround_bug_10194508    *bool `json:",omitempty"`
 	Exynos4_enhancements    *bool `json:",omitempty"`
 	Additional_gralloc_10_usage_bits  *string `json:",omitempty"`
 	Apply_msm8974_1440p_egl_workaround  *bool `json:",omitempty"`
