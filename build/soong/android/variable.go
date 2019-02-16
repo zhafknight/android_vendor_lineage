@@ -12,9 +12,6 @@ type Product_variables struct {
         Disable_ashmem_tracking struct {
 		Cflags []string
         }
-	Allows_invalid_pthread struct {
-		Cppflags []string
-	}
 	Egl_needs_handle struct {
 		Cppflags []string
 	}
@@ -77,7 +74,6 @@ type ProductVariables struct {
 	Use_samsung_colorformat    *bool `json:",omitempty"`
 	Requires_synchronous_setsurface    *bool `json:",omitempty"`
 	Disable_ashmem_tracking    *bool `json:",omitempty"`
-	Allows_invalid_pthread    *bool `json:",omitempty"`
 	Egl_needs_handle    *bool `json:",omitempty"`
 	Egl_workaround_bug_10194508    *bool `json:",omitempty"`
 	Exynos4_enhancements    *bool `json:",omitempty"`

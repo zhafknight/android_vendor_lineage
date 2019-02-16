@@ -7,7 +7,6 @@ $(call add_json_bool, Force_screenshot_cpu_path, $(filter true,$(BOARD_FORCE_SCR
 $(call add_json_bool, Use_samsung_colorformat, $(filter true,$(BOARD_USE_SAMSUNG_COLORFORMAT)))
 $(call add_json_bool, Requires_synchronous_setsurface, $(filter true,$(TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE)))
 $(call add_json_bool, Disable_ashmem_tracking, $(filter true,$(TARGET_DISABLE_ASHMEM_TRACKING)))
-$(call add_json_bool, Allows_invalid_pthread, $(filter true,$(TARGET_ALLOWS_INVALID_PTHREAD)))
 $(call add_json_bool, Egl_needs_handle, $(filter true,$(BOARD_EGL_NEEDS_HANDLE_VALUE)))
 $(call add_json_bool, Egl_workaround_bug_10194508, $(filter true,$(BOARD_EGL_WORKAROUND_BUG_10194508)))
 $(call add_json_bool, Exynos4_enhancements, $(filter true,$(TARGET_NEEDS_EXYNOS4_ENHANCEMENTS)))
