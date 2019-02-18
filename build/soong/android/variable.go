@@ -31,9 +31,6 @@ type Product_variables struct {
 	Has_legacy_camera_hal1 struct {
 		Cflags []string
 	}
-	Needs_text_relocations struct {
-		Cppflags []string
-	}
 	Should_skip_waiting_for_qsee struct {
 		Cflags []string
 	}
@@ -80,7 +77,6 @@ type ProductVariables struct {
 	Additional_gralloc_10_usage_bits  *string `json:",omitempty"`
 	Apply_msm8974_1440p_egl_workaround  *bool `json:",omitempty"`
 	Has_legacy_camera_hal1  *bool `json:",omitempty"`
-	Needs_text_relocations  *bool `json:",omitempty"`
 	Java_Source_Overlays *string `json:",omitempty"`
 	Should_skip_waiting_for_qsee  *bool `json:",omitempty"`
 	Specific_camera_parameter_library  *string `json:",omitempty"`
