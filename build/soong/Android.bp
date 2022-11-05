@@ -415,6 +415,24 @@ qti_vibrator_hal {
         },
         qti_vibrator_effect_lib: {
             shared_libs: ["%s"],
+       },
+    },
+}
+
+// Netd direct connect rule
+soong_config_module_type {
+    name: "needs_netd_direct_connect_rule",
+    module_type: "cc_defaults",
+    config_namespace: "lineageGlobalVars",
+    bool_variables: ["needs_netd_direct_connect_rule"],
+    properties: ["cppflags"],
+}
+
+needs_netd_direct_connect_rule {
+    name: "needs_netd_direct_connect_rule_defaults",
+    soong_config_variables: {
+        needs_netd_direct_connect_rule: {
+            cppflags: ["-DNEEDS_NETD_DIRECT_CONNECT_RULE"],
         },
     },
 }
