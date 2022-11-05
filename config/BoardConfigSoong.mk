@@ -113,3 +113,6 @@ endif
 # Soong legacy value variables
 SOONG_CONFIG_lineageGlobalVars += needs_netd_direct_connect_rule
 SOONG_CONFIG_lineageGlobalVars_needs_netd_direct_connect_rule := $(TARGET_NEEDS_NETD_DIRECT_CONNECT_RULE)
+
+SOONG_CONFIG_lineageGlobalVars += target_process_sdk_version_override
+SOONG_CONFIG_lineageGlobalVars_target_process_sdk_version_override := $(TARGET_PROCESS_SDK_VERSION_OVERRIDE)
