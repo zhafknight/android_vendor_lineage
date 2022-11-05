@@ -116,3 +116,6 @@ SOONG_CONFIG_lineageGlobalVars_needs_netd_direct_connect_rule := $(TARGET_NEEDS_
 
 SOONG_CONFIG_lineageGlobalVars += target_process_sdk_version_override
 SOONG_CONFIG_lineageGlobalVars_target_process_sdk_version_override := $(TARGET_PROCESS_SDK_VERSION_OVERRIDE)
+
+SOONG_CONFIG_lineageGlobalVars += has_memfd_backport
+SOONG_CONFIG_lineageGlobalVars_has_memfd_backport := $(TARGET_HAS_MEMFD_BACKPORT)
