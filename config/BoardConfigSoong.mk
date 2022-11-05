@@ -63,6 +63,25 @@ SOONG_CONFIG_lineageQcomVars += \
     qcom_display_headers_namespace
 endif
 
+# Soong Camera HAL1 related configuration
+SOONG_CONFIG_lineageGlobalVars += \
+    needs_camera_boottime \
+    has_legacy_camera_hal1 \
+    uses_camera_parameter_lib
+
+SOONG_CONFIG_lineageGlobalVars_needs_camera_boottime := $(TARGET_CAMERA_BOOTTIME_TIMESTAMP)
+SOONG_CONFIG_lineageGlobalVars_has_legacy_camera_hal1 := $(TARGET_HAS_LEGACY_CAMERA_HAL1)
+
+TARGET_SPECIFIC_CAMERA_PARAMETER_LIBRARY ?= libcamera_parameters
+SOONG_CONFIG_lineageGlobalVars_uses_camera_parameter_lib := $(TARGET_SPECIFIC_CAMERA_PARAMETER_LIBRARY)
+
+# Soong Qcom Camera HAL1 related configuration
+SOONG_CONFIG_lineageQcomVars += \
+    uses_qcom_bsp_legacy
+
+SOONG_CONFIG_lineageQcomVars_uses_qcom_bsp_legacy := $(TARGET_USES_QCOM_BSP_LEGACY)
+
+
 # Soong bool variables
 SOONG_CONFIG_lineageGlobalVars_gralloc_handle_has_custom_content_md_reserved_size := $(TARGET_GRALLOC_HANDLE_HAS_CUSTOM_CONTENT_MD_RESERVED_SIZE)
 SOONG_CONFIG_lineageGlobalVars_gralloc_handle_has_reserved_size := $(TARGET_GRALLOC_HANDLE_HAS_RESERVED_SIZE)

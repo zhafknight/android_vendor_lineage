@@ -50,6 +50,109 @@ cc_library_headers {
     recovery_available: true,
 }
 
+// Legacy Camera HAL1
+soong_config_module_type {
+    name: "needs_camera_boottime",
+    module_type: "cc_defaults",
+    config_namespace: "lineageGlobalVars",
+    bool_variables: ["needs_camera_boottime"],
+    properties: ["cppflags"],
+}
+
+needs_camera_boottime {
+    name: "needs_camera_boottime_defaults",
+    soong_config_variables: {
+        needs_camera_boottime: {
+            cppflags: ["-DTARGET_CAMERA_BOOTTIME_TIMESTAMP"],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "no_cameraserver",
+    module_type: "cc_defaults",
+    config_namespace: "lineageGlobalVars",
+    bool_variables: ["has_legacy_camera_hal1"],
+    properties: [
+        "cppflags",
+    ],
+}
+
+no_cameraserver {
+    name: "no_cameraserver_defaults",
+    soong_config_variables: {
+        has_legacy_camera_hal1: {
+            cppflags: [
+                "-DNO_CAMERA_SERVER",
+                "-Wno-overloaded-virtual",
+            ],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "camera_in_mediaserver",
+    module_type: "cc_defaults",
+    config_namespace: "lineageGlobalVars",
+    bool_variables: ["has_legacy_camera_hal1"],
+    properties: [
+        "overrides",
+        "shared_libs",
+    ],
+}
+
+camera_in_mediaserver {
+    name: "camera_in_mediaserver_defaults",
+    defaults: ["no_cameraserver_defaults"],
+    soong_config_variables: {
+        has_legacy_camera_hal1: {
+            overrides: ["cameraserver"],
+            shared_libs: [
+                "android.hardware.camera.common@1.0",
+                "android.hardware.camera.device@3.4",
+                "android.hardware.camera.provider@2.6",
+                "android.hardware.camera.provider@2.7",
+                "libcameraservice",
+                "libgui",
+            ],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "camera_parameter_library",
+    module_type: "cc_defaults",
+    config_namespace: "lineageGlobalVars",
+    value_variables: ["uses_camera_parameter_lib"],
+    properties: ["whole_static_libs"],
+}
+
+camera_parameter_library {
+    name: "camera_parameter_library_defaults",
+    soong_config_variables: {
+        uses_camera_parameter_lib: {
+            whole_static_libs: ["%s"],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "stagefright_qcom_legacy",
+    module_type: "cc_defaults",
+    config_namespace: "lineageQcomVars",
+    bool_variables: ["uses_qcom_bsp_legacy"],
+    properties: ["cppflags"],
+}
+
+stagefright_qcom_legacy {
+    name: "stagefright_qcom_legacy_defaults",
+    soong_config_variables: {
+        uses_qcom_bsp_legacy: {
+            cppflags: ["-DQCOM_BSP_LEGACY"],
+        },
+    },
+}
+
 // Target platform agnostic config modules
 soong_config_module_type {
     name: "aapt_version_code",
