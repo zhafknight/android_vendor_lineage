@@ -109,3 +109,7 @@ SOONG_CONFIG_lineageQcomVars_qcom_display_headers_namespace := vendor/qcom/opens
 else
 SOONG_CONFIG_lineageQcomVars_qcom_display_headers_namespace := $(QCOM_SOONG_NAMESPACE)/display
 endif
+
+# Soong legacy value variables
+SOONG_CONFIG_lineageGlobalVars += needs_netd_direct_connect_rule
+SOONG_CONFIG_lineageGlobalVars_needs_netd_direct_connect_rule := $(TARGET_NEEDS_NETD_DIRECT_CONNECT_RULE)
